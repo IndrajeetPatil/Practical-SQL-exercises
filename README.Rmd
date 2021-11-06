@@ -9,7 +9,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 My solutions to exercises from the _Practical SQL_ (1st Edition) book.
 
-Solutions: <https://github.com/IndrajeetPatil/Practical-SQL-exercises/tree/master/solutions>
+## Links
+
+Solutions: <https://github.com/IndrajeetPatil/Practical-SQL-exercises/tree/master/exercises>
 
 Book: <https://nostarch.com/practicalSQL>
 
