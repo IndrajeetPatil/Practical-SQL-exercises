@@ -1,0 +1,17 @@
+---
+title: "Practical-SQL exercises"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+My solutions to exercises ("Try it yourself" sections at the end of the chapters) from _Practical SQL_ (1st Edition) book:
+
+<https://nostarch.com/practicalSQL>
+
+```{r, out.width="50%", echo=FALSE}
+knitr::include_graphics("assets/cover.jpg")
+```
+
