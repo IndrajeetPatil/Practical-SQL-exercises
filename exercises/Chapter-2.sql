@@ -4,7 +4,7 @@ CREATE DATABASE analysis;
 
 -- creating a table named teachers with six columns
 CREATE TABLE teachers (
-    id bigserial,
+    id serial,
     first_name varchar(25),
     last_name varchar(50),
     school varchar(50),
@@ -59,6 +59,7 @@ VALUES
         38500
     );
 
+/* ----------------------- begin --------------------------- */
 -- Q1. list for the superintendant
 SELECT
     school,
@@ -87,3 +88,14 @@ WHERE
     hire_date > '2010-1-1'
 ORDER BY
     salary DESC;
+
+/* ----------------------- end --------------------------- */
+/* more practice with string matching */
+-- find first names with at least one e and a at second position
+SELECT
+    first_name
+FROM
+    teachers
+WHERE
+    (first_name LIKE '%e%')
+    AND (first_name LIKE '_a%');
