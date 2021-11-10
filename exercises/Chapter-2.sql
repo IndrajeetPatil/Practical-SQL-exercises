@@ -90,8 +90,11 @@ ORDER BY
     salary DESC;
 
 /* ----------------------- end --------------------------- */
+--
+--
+--
 /* more practice with string matching */
--- find first names with at least one e and a at second position
+-- find first_name with at least one 'e' *and* 'a' at second position
 SELECT
     first_name
 FROM
@@ -99,3 +102,17 @@ FROM
 WHERE
     (first_name LIKE '%e%')
     AND (first_name LIKE '_a%');
+
+-- find teachers whose last name is not 'Bush' and someone who
+-- was hired after 2005 and then sort by their school name (ascending) and 
+-- salary (descending)
+SELECT
+    *
+FROM
+    teachers
+WHERE
+    (first_name <> 'Bush')
+    AND (hire_date > '1-1-2005')
+ORDER BY
+    school ASC,
+    salary DESC;

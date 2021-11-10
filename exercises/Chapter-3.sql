@@ -85,3 +85,5 @@ DROP TABLE drivers2;
 /* ----------------------- end --------------------------- */
 --
 -- Practising more with the drivers table
+SELECT clock_out - clock_in AS duration
+FROM drivers;
