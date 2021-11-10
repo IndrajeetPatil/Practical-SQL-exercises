@@ -79,6 +79,9 @@ VALUES
  SQL state: 22007
  Character: 146
  */
+-- delete this unnecessary table
+DROP TABLE drivers2;
+
 /* ----------------------- end --------------------------- */
 --
 -- Practising more with the drivers table
