@@ -4,7 +4,20 @@ COPY movies
 FROM
     '..\assets\ch4q1.txt' WITH (FORMAT txt, HEADER, DELIMITER ':');
 
--- Q2. 
+-- Q2. Counties with most housing units
+COPY (
+    SELECT
+        geo_name,
+        state_us_abbreviation,
+        housing_unit_count_100_percent
+    FROM
+        us_counties_2010
+    ORDER BY
+        housing_unit_count_100_percent DESC
+    LIMIT
+        20
+) TO 'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets\ch4q2.txt' WITH (FORMAT csv, HEADER);
+
 -- Q3. Fixed-point numbers
 /*
  numeric(3,8) will not work for the provided values and you will get the error

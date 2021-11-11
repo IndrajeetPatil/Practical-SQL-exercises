@@ -1,3 +1,0 @@
--- Q1.
-
-CREATE TABLE

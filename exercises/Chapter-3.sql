@@ -2,7 +2,7 @@
 -- create a database for a grocery delivery company 
 CREATE DATABASE grocery;
 
--- create a table for drivers
+-- Q1-2. create a table for drivers
 -- choose the correct datatype for miles driven with required precision
 /* 
  -- since mileage can't be more than 999 (3 digits on the left), and
@@ -85,5 +85,7 @@ DROP TABLE drivers2;
 /* ----------------------- end --------------------------- */
 --
 -- Practising more with the drivers table
-SELECT clock_out - clock_in AS duration
-FROM drivers;
+SELECT
+    clock_out - clock_in AS duration
+FROM
+    drivers;

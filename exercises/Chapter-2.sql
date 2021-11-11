@@ -12,7 +12,7 @@ CREATE TABLE teachers (
     salary numeric
 );
 
---i nserting data into the teachers table
+--inserting data into the teachers table
 INSERT INTO
     teachers (first_name, last_name, school, hire_date, salary)
 VALUES

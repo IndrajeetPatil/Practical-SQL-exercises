@@ -1,3 +1,4 @@
+/* ----------------------- begin --------------------------- */
 -- Q1. calculating the area of a circle whose radius is 5 inches
 /* no paranthese needed because exponent/square function has 
  a higher precedence than multiplication 
@@ -22,6 +23,7 @@ FROM
 
 -- Frankin County with just about 7% people identifying as American Indian and Alaska Native alone
 -- You can see map here: https://www.census.gov/quickfacts/fact/map/franklincountynewyork/RHI325219
+-- As to why? I have no clue. Google search wasn't that helpful.
 SELECT
     geo_name,
     (
@@ -46,4 +48,21 @@ FROM
 WHERE
     state_us_abbreviation IN ('NY', 'CA')
 GROUP BY
+    state_us_abbreviation;
+
+/* ----------------------- end --------------------------- */
+-- Practising more with the US census 2010 data
+-- check out where housing crisis is expected to be happening
+SELECT
+    geo_name,
+    state_us_abbreviation,
+    (
+        CAST(housing_unit_count_100_percent AS numeric) / CAST(population_count_100_percent AS numeric)
+    ) * 100 AS housing_prop
+FROM
+    us_counties_2010
+WHERE
+    population_count_100_percent > 10000
+ORDER BY
+    housing_prop ASC,
     state_us_abbreviation;
