@@ -128,3 +128,34 @@ FROM
         ORDER BY
             pct_visits DESC
     ) AS pct_data;
+
+-- FBI data: any relationship between violent crime and larceny theft?
+-- small and positive (correlation = 0.288, slope = 0.003)
+-- N.B.: r and slope are not equal because variables are not scaled in regression
+SELECT
+    round(
+        corr(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        3
+    ) AS correlation,
+    round(
+        regr_intercept(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        3
+    ) AS intercept,
+    round(
+        regr_slope(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        3
+    ) AS slope,
+    round(
+        regr_r2(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        3
+    ) AS r_sq
+FROM
+    (
+        SELECT
+            st,
+            city,
+            round(violent_crime :: numeric / population, 3) AS pct_violent,
+            round(larceny_theft :: numeric / population, 3) AS pct_larceny
+        FROM
+            fbi_crime_data_2015
+    ) AS pct_data;

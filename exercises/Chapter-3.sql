@@ -1,3 +1,10 @@
+--------------------------------------------------------------
+-- Practical SQL: A Beginner's Guide to Storytelling with Data
+-- by Anthony DeBarros
+-- 1st Edition
+-- Chapter 3 "Try It Yourself" Exercises
+--------------------------------------------------------------
+--
 /* ----------------------- begin --------------------------- */
 -- create a database for a grocery delivery company 
 CREATE DATABASE grocery;

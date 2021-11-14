@@ -1,3 +1,10 @@
+--------------------------------------------------------------
+-- Practical SQL: A Beginner's Guide to Storytelling with Data
+-- by Anthony DeBarros
+-- 1st Edition
+-- Chapter 6 "Try It Yourself" Exercises
+--------------------------------------------------------------
+--
 -- Q1. The curious case of missing counties
 -- identify which counties don’t exist in both tables
 /* 

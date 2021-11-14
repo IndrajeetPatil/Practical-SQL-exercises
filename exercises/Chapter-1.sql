@@ -1,3 +1,10 @@
+--------------------------------------------------------------
+-- Practical SQL: A Beginner's Guide to Storytelling with Data
+-- by Anthony DeBarros
+-- 1st Edition
+-- Chapter 1 "Try It Yourself" Exercises
+--------------------------------------------------------------
+--
 /* ----------------------- begin --------------------------- */
 -- create a database for a zoo 
 CREATE DATABASE zoo;

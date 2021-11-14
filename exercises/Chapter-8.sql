@@ -1,3 +1,10 @@
+--------------------------------------------------------------
+-- Practical SQL: A Beginner's Guide to Storytelling with Data
+-- by Anthony DeBarros
+-- 1st Edition
+-- Chapter 8 "Try It Yourself" Exercises
+--------------------------------------------------------------
+--
 -- Q1. Use of technology in library
 -- Create tables using Listing 8-1 and Listing 8-2
 /* 

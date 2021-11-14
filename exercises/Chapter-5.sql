@@ -1,3 +1,10 @@
+--------------------------------------------------------------
+-- Practical SQL: A Beginner's Guide to Storytelling with Data
+-- by Anthony DeBarros
+-- 1st Edition
+-- Chapter 5 "Try It Yourself" Exercises
+--------------------------------------------------------------
+--
 /* ----------------------- begin --------------------------- */
 -- Q1. calculating the area of a circle whose radius is 5 inches
 /* no paranthese needed because exponent/square function has 

@@ -1,3 +1,10 @@
+--------------------------------------------------------------
+-- Practical SQL: A Beginner's Guide to Storytelling with Data
+-- by Anthony DeBarros
+-- 1st Edition
+-- Chapter 2 "Try It Yourself" Exercises
+--------------------------------------------------------------
+--
 -- first you need to create the database and the table used in the book
 -- create database
 CREATE DATABASE analysis;
