@@ -46,6 +46,7 @@ GROUP BY
 ORDER BY
     pct_change_gpterms DESC;
 
+-- Q2.
 -- Q3. Missing agencies
 -- There are 236 agencies which are not present in either of the tables
 SELECT
