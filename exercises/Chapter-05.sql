@@ -4,19 +4,29 @@
 -- 1st Edition
 -- Chapter 5 "Try It Yourself" Exercises
 --------------------------------------------------------------
---
-/* ----------------------- begin --------------------------- */
--- Q1. calculating the area of a circle whose radius is 5 inches
-/* no paranthese needed because exponent/square function has 
- a higher precedence than multiplication 
+
+
+---------
+-- Q1 --
+---------
+
+-- calculating the area of a circle whose radius is 5 inches
+/* no paranthese needed because exponent/square function has
+ a higher precedence than multiplication
  */
+
 SELECT
     3.14 * SQUARE(5);
 
-/* 
+
+---------
+-- Q2 --
+---------
+
+/*
  You first need to have created a database and then also a table
  code here: https://github.com/anthonydb/practical-sql/blob/ebc2233c41f2ba18512daf7c4a1a2f4c7f72a520/Chapter_04/Chapter_04.sql#L20-L123
- 
+
  -- Importing data from csv (path to file will be different for everyone)
  -- If you get 'Permission denied' error, see: https://stackoverflow.com/a/65459173/7973626
  -- If that still doesn't work, use the pgAdmin GUI to import data
@@ -24,13 +34,16 @@ SELECT
  */
 -- Q2. NY county with the highest percentage of
 -- CREATE DATABASE us_census;
+
 COPY us_counties_2010
 FROM
-    'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets' WITH (FORMAT csv, HEADER);
+    'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets'
+WITH (FORMAT csv, HEADER);
 
 -- Frankin County with just about 7% people identifying as American Indian and Alaska Native alone
 -- You can see map here: https://www.census.gov/quickfacts/fact/map/franklincountynewyork/RHI325219
 -- As to why? I have no clue. Google search wasn't that helpful.
+
 SELECT
     geo_name,
     (
@@ -43,7 +56,12 @@ WHERE
 ORDER BY
     prop DESC;
 
--- Q3. Median county population in CA (179140.5) was higher than NY (91301)
+
+---------
+-- Q3 --
+---------
+
+-- median county population in CA (179140.5) was higher than NY (91301)
 SELECT
     state_us_abbreviation,
     percentile_cont(0.5) WITHIN GROUP (
@@ -55,21 +73,4 @@ FROM
 WHERE
     state_us_abbreviation IN ('NY', 'CA')
 GROUP BY
-    state_us_abbreviation;
-
-/* ----------------------- end --------------------------- */
--- Practising more with the US census 2010 data
--- check out where housing crisis is expected to be happening
-SELECT
-    geo_name,
-    state_us_abbreviation,
-    (
-        CAST(housing_unit_count_100_percent AS numeric) / CAST(population_count_100_percent AS numeric)
-    ) * 100 AS housing_prop
-FROM
-    us_counties_2010
-WHERE
-    population_count_100_percent > 10000
-ORDER BY
-    housing_prop ASC,
     state_us_abbreviation;

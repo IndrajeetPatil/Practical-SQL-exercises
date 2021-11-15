@@ -4,14 +4,26 @@
 -- 1st Edition
 -- Chapter 4 "Try It Yourself" Exercises
 --------------------------------------------------------------
---
-/* ----------------------- begin --------------------------- */
--- Q1. Importing specified text file
+
+
+---------
+-- Q1 --
+---------
+
+-- importing specified text file
+-- Ref. <https://dba.stackexchange.com/questions/76812/escaping-delimiter-in-postgresql>
+
 COPY movies
 FROM
-    '..\assets\ch4q1.txt' WITH (FORMAT txt, HEADER, DELIMITER ':');
+    'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets\ch4q1.txt'
+WITH (FORMAT CSV, HEADER, DELIMITER ':', quote '#');
 
--- Q2. Counties with most housing units
+
+---------
+-- Q2 --
+---------
+
+-- counties with most housing units
 COPY (
     SELECT
         geo_name,
@@ -23,23 +35,34 @@ COPY (
         housing_unit_count_100_percent DESC
     LIMIT
         20
-) TO 'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets\ch4q2.txt' WITH (FORMAT csv, HEADER);
+)
+TO
+    'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets\ch4q2.txt'
+WITH (FORMAT csv, HEADER);
 
--- Q3. Fixed-point numbers
+
+---------
+-- Q3 --
+---------
+
+-- fixed-point numbers
 /*
  numeric(3,8) will not work for the provided values and you will get the error
  'NUMERIC scale 8 must be between 0 and precision 3
- This is because with this scale all values will be to the right of the decimal 
+ This is because with this scale all values will be to the right of the decimal
  point and so the value needs to be between 0 and 1
  */
+
 SELECT
     CAST(17519.668 AS numeric(3, 8));
 
--- it instead needs to be the following 
+-- it instead needs to be the following
 -- scale of 3 means 3 digits to the right of the decimal point
+
 SELECT
     CAST(17519.668 AS numeric(8, 3));
 
--- if the value were to be between 0 and 1, the following will work 
+-- if the value were to be between 0 and 1, the following will work
+
 SELECT
     CAST(0.17519668 AS numeric(8, 8));

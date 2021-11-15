@@ -4,19 +4,24 @@
 -- 1st Edition
 -- Chapter 8 "Try It Yourself" Exercises
 --------------------------------------------------------------
---
--- Q1. Use of technology in library
+
+---------
+-- Q1 --
+---------
+
+-- Use of technology in library
 -- Create tables using Listing 8-1 and Listing 8-2
-/* 
+/*
  Results show that-
- 
- 1. There has been a big increases in gpterms (the number of internet-connected 
- computers used by the public), with the biggest being 827% for Guam. 
- Only two states had decrease: Hawaii (-2.4%) and Puerto Rico (-6.18%) 
- 
- 2. The pitusr (use of public internet computers per year), on the other hand, 
- has seen both increase and descrease across states. 
+
+ 1. There has been a big increases in gpterms (the number of internet-connected
+ computers used by the public), with the biggest being 827% for Guam.
+ Only two states had decrease: Hawaii (-2.4%) and Puerto Rico (-6.18%)
+
+ 2. The pitusr (use of public internet computers per year), on the other hand,
+ has seen both increase and descrease across states.
  */
+
 SELECT
     pls14.stabr,
     SUM(pls14.gpterms) AS gpterms_14,
@@ -53,9 +58,17 @@ GROUP BY
 ORDER BY
     pct_change_gpterms DESC;
 
--- Q2.
--- Q3. Missing agencies
+---------
+-- Q2 --
+---------
+
+---------
+-- Q3 --
+---------
+
+-- Missing agencies
 -- There are 236 agencies which are not present in either of the tables
+
 SELECT
     *
 FROM

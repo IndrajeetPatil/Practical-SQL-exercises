@@ -4,9 +4,14 @@
 -- 1st Edition
 -- Chapter 7 "Try It Yourself" Exercises
 --------------------------------------------------------------
---
--- Q1. Choosing primary and foreign keys and imposing constraints
--- with justification
+
+
+---------
+-- Q1 --
+---------
+
+-- Choosing primary and foreign keys and imposing constraints with justification
+
 CREATE DATABASE vinyl;
 
 CREATE TABLE albums (
@@ -36,15 +41,30 @@ CREATE TABLE songs (
     CONSTRAINT songs_key PRIMARY KEY (album_id)
 );
 
--- Q2. Alternative natural primary key
+
+---------
+-- Q2 --
+---------
+
+-- Alternative natural primary key
 /*
- Instead of `album_id` column as a *surrogate* primary key for the `albums` table, 
- `album_artist` column could be a *natural* primary key. 
+ Instead of `album_id` column as a *surrogate* primary key for the `albums` table,
+ `album_artist` column could be a *natural* primary key.
  In this case, the foreign key for `songs` table will be `song_artist`.
  */
+
 CONSTRAINT albums_key PRIMARY KEY (album_artist);
 
--- Q3. Possible indexing columns
+
+---------
+-- Q3 --
+---------
+
+-- Possible indexing columns
 /*
  good candidates for indexes: `album_id`, `album_catalog_code`, `album_description`
  */
+
+CREATE INDEX album_id_idx           ON albums (album_id);
+CREATE INDEX album_catalog_code_idx ON albums (album_catalog_code);
+CREATE INDEX album_description_idx  ON albums (album_description);
