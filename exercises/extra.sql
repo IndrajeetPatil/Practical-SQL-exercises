@@ -1,8 +1,6 @@
 -- the tables come from datasets mentioned across various chapters in the book
-
 -- more practice with string matching
 -- find first_name with at least one 'e' *and* 'a' at second position
-
 SELECT
     first_name
 FROM
@@ -14,7 +12,6 @@ WHERE
 -- find teachers whose last name is not 'Bush' and someone who
 -- was hired after 2005 and then sort by their school name (ascending) and
 -- salary (descending)
-
 SELECT
     *
 FROM
@@ -26,10 +23,8 @@ ORDER BY
     school ASC,
     salary DESC;
 
-
 -- Practising more with the US census 2010 data
 -- check out where housing crisis is expected to be happening
-
 SELECT
     geo_name,
     state_us_abbreviation,
@@ -44,10 +39,8 @@ ORDER BY
     housing_prop ASC,
     state_us_abbreviation;
 
-
 -- TODO: how to avoid the repeated computation of pct_violent_crime here?
 -- Select a few states and rank cities according to violent crime rates
-
 SELECT
     st,
     city,
@@ -104,7 +97,6 @@ FROM
 -- FBI data: any relationship between violent crime and larceny theft?
 -- small and positive (correlation = 0.288, slope = 0.003)
 -- N.B.: r and slope are not equal because variables are not scaled in regression
-
 SELECT
     round(
         corr(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
@@ -133,7 +125,6 @@ FROM
             fbi_crime_data_2015
     ) AS pct_data;
 
-
 ---- practice
 SELECT
     date_part('hour', tpep_pickup_datetime) as pickup_hour,
@@ -149,3 +140,23 @@ GROUP BY
     pickup_hour
 ORDER BY
     pickup_hour;
+
+SELECT
+    us10.county_fips,
+    round(
+        (
+            (us10.p0010001 :: numeric - us00.p0010001) / us00.p0010001
+        ) * 100,
+        2
+    ) AS pct_pop_change
+FROM
+    us_counties_2010 AS us10
+    INNER JOIN us_counties_2000 AS us00 ON us10.county_fips = us00.county_fips
+ORDER BY
+    us10.county_fips;
+
+CREATE TABLE region_details (
+    obereg varchar(2) CONSTRAINT region_key PRIMARY KEY,
+    region_name text
+);
+

@@ -43,3 +43,11 @@ FROM
 WHERE
     (us10.county_fips IS NULL)
     OR (us00.county_fips IS NULL);
+
+
+---------
+-- Q2 --
+---------
+
+
+-- median of the percent change in county population
