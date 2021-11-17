@@ -11,7 +11,7 @@ My solutions to exercises from the _Practical SQL_ (1st Edition) [book](https://
 
 Solutions: <https://github.com/IndrajeetPatil/Practical-SQL-exercises/tree/master/exercises>
 
-```{r, out.width="50%", echo=FALSE}
+```{r, out.width="60%", echo=FALSE}
 knitr::include_graphics("assets/cover.jpg")
 ```
 
@@ -22,6 +22,10 @@ knitr::include_graphics("assets/cover.jpg")
 - 1st Edition Code and Data: <https://github.com/anthonydb/practical-sql>
 
 - 2nd Edition Code and Data: <https://github.com/anthonydb/practical-sql-2>
+
+### Resources
+
+- A curated list of awesome PostgreSQL software, libraries, tools and resources: <https://github.com/dhamaniasad/awesome-postgres>
 
 ### Useful tips for debugging few common problems
 

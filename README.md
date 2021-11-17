@@ -7,7 +7,7 @@ My solutions to exercises from the *Practical SQL* (1st Edition)
 Solutions:
 <https://github.com/IndrajeetPatil/Practical-SQL-exercises/tree/master/exercises>
 
-<img src="assets/cover.jpg" width="50%" />
+<img src="assets/cover.jpg" width="60%" />
 
 ## See also
 
@@ -18,6 +18,11 @@ Solutions:
 
 -   2nd Edition Code and Data:
     <https://github.com/anthonydb/practical-sql-2>
+
+### Resources
+
+-   A curated list of awesome PostgreSQL software, libraries, tools and
+    resources: <https://github.com/dhamaniasad/awesome-postgres>
 
 ### Useful tips for debugging few common problems
 
