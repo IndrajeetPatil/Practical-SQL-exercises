@@ -10,7 +10,9 @@
 -- Q1 and Q2 --
 ---------------
 
+
 -- create a database for a grocery delivery company
+
 CREATE DATABASE grocery;
 
 -- create a table for drivers
@@ -79,7 +81,9 @@ VALUES
 -- Q3 --
 ---------
 
+
 -- what do you see when a malformed date entry is cast to timestamp?
+
 CREATE TABLE drivers2(
     first_name varchar(50),
     workhours timestamp
@@ -99,4 +103,5 @@ VALUES
  */
 
 -- delete this unnecessary table
+
 DROP TABLE drivers2;

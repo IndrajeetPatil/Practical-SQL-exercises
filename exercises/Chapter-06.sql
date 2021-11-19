@@ -64,6 +64,7 @@ FROM
     AND c2010.county_fips = c2000.county_fips
     AND c2010.p0010001 <> c2000.p0010001;
 
+
 ---------
 -- Q3 --
 ---------

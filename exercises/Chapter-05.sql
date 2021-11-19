@@ -10,6 +10,7 @@
 -- Q1 --
 ---------
 
+
 -- calculating the area of a circle whose radius is 5 inches
 /* no paranthese needed because exponent/square function has
  a higher precedence than multiplication
@@ -23,6 +24,7 @@ SELECT
 -- Q2 --
 ---------
 
+
 /*
  You first need to have created a database and then also a table
  code here: https://github.com/anthonydb/practical-sql/blob/ebc2233c41f2ba18512daf7c4a1a2f4c7f72a520/Chapter_04/Chapter_04.sql#L20-L123
@@ -35,8 +37,9 @@ SELECT
 -- Q2. NY county with the highest percentage of
 -- CREATE DATABASE us_census;
 
+
 COPY us_counties_2010
-FROM
+FROM -- your file path will be different
     'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets'
 WITH (FORMAT csv, HEADER);
 
@@ -61,7 +64,9 @@ ORDER BY
 -- Q3 --
 ---------
 
+
 -- median county population in CA (179140.5) was higher than NY (91301)
+
 SELECT
     state_us_abbreviation,
     percentile_cont(0.5) WITHIN GROUP (

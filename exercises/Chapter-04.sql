@@ -10,11 +10,12 @@
 -- Q1 --
 ---------
 
+
 -- importing specified text file
 -- Ref. <https://dba.stackexchange.com/questions/76812/escaping-delimiter-in-postgresql>
 
 COPY movies
-FROM
+FROM -- your file path will be different
     'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets\ch4q1.txt'
 WITH (FORMAT CSV, HEADER, DELIMITER ':', quote '#');
 
@@ -22,6 +23,7 @@ WITH (FORMAT CSV, HEADER, DELIMITER ':', quote '#');
 ---------
 -- Q2 --
 ---------
+
 
 -- counties with most housing units
 COPY (
@@ -36,7 +38,7 @@ COPY (
     LIMIT
         20
 )
-TO
+TO -- your file path will be different
     'C:\Users\IndrajeetPatil\Documents\GitHub\Practical-SQL-exercises\assets\ch4q2.txt'
 WITH (FORMAT csv, HEADER);
 
@@ -44,6 +46,7 @@ WITH (FORMAT csv, HEADER);
 ---------
 -- Q3 --
 ---------
+
 
 -- fixed-point numbers
 /*

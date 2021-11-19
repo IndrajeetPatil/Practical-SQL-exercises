@@ -10,6 +10,7 @@
 -- Q1 --
 ---------
 
+
 -- list in the format specified by the superintendant
 
 SELECT
@@ -40,6 +41,7 @@ WHERE
 ---------
 -- Q3 --
 ---------
+
 
 -- find and order teachers by hiring date and salary
 

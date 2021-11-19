@@ -31,6 +31,7 @@ FROM
 -- Q2 --
 ---------
 
+
 -- Meaningful comparisons
 -- Milwaukee is at the top with 12.29 motor vehicle thefts per 1000 people
 
@@ -70,6 +71,7 @@ ORDER BY
 ---------
 -- Q3 --
 ---------
+
 
 -- Ranking library agencies based on rates of visits
 /*

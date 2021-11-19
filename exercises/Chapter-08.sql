@@ -5,9 +5,11 @@
 -- Chapter 8 "Try It Yourself" Exercises
 --------------------------------------------------------------
 
+
 ---------
 -- Q1 --
 ---------
+
 
 -- Use of technology in library
 -- Create tables using Listing 8-1 and Listing 8-2

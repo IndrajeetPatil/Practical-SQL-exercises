@@ -10,6 +10,7 @@
 -- Q1 --
 ---------
 
+
 -- Choosing primary and foreign keys and imposing constraints with justification
 
 CREATE DATABASE vinyl;
@@ -46,6 +47,7 @@ CREATE TABLE songs (
 -- Q2 --
 ---------
 
+
 -- Alternative natural primary key
 /*
  Instead of `album_id` column as a *surrogate* primary key for the `albums` table,
@@ -59,6 +61,7 @@ CONSTRAINT albums_key PRIMARY KEY (album_artist);
 ---------
 -- Q3 --
 ---------
+
 
 -- Possible indexing columns
 /*

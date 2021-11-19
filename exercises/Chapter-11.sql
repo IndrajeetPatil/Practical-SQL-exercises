@@ -113,7 +113,7 @@ SELECT
                 )
             ),
             total_amount
-        ) :: numeric,
+        )::numeric,
         2
     ) AS r_duration_amount,
     round(
@@ -125,13 +125,13 @@ SELECT
                 )
             ),
             total_amount
-        ) :: numeric,
+        )::numeric,
         2
     ) AS r2_duration_amount,
     -- relationship between trip distance and total amount
-    round(corr(trip_distance, total_amount) :: numeric, 2) AS r_distance_amount,
+    round(corr(trip_distance, total_amount)::numeric, 2) AS r_distance_amount,
     round(
-        regr_r2(trip_distance, total_amount) :: numeric,
+        regr_r2(trip_distance, total_amount)::numeric,
         2
     ) AS r2_distance_amount
 FROM

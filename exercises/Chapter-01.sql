@@ -10,6 +10,7 @@
 -- Q1 --
 ---------
 
+
 -- create a database for a zoo
 
 CREATE DATABASE zoo;
@@ -29,6 +30,7 @@ CREATE TABLE animals (
 ---------
 -- Q2 --
 ---------
+
 
 -- insert some made up data into it
 

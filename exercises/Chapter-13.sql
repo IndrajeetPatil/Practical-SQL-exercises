@@ -45,8 +45,8 @@ VALUES
 
 ALTER TABLE
     authors
-add
-    column suffix varchar(10);
+ADD COLUMN
+    suffix varchar(10);
 
 UPDATE
     authors
@@ -101,6 +101,7 @@ FROM
     words
 WHERE
     length(clean_words) >= 5;
+
 
 ---------
 -- Q3 --
