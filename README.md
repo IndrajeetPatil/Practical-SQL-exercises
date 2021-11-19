@@ -24,7 +24,7 @@ Solutions:
 -   A curated list of awesome PostgreSQL software, libraries, tools and
     resources: <https://github.com/dhamaniasad/awesome-postgres>
 
-### Useful tips for debugging few common problems
+### Useful tips for debugging a few common problems
 
 -   If you find pgAdmin is too slow on Windows:
     <https://dba.stackexchange.com/questions/201646/slow-connect-time-to-postgresql-on-windows-10>
