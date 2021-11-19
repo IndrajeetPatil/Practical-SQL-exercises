@@ -1,6 +1,10 @@
+-- The following exercises are not from the book, but just for my own practice
+-- This script will keep updating while I keep practicing
+
 -- the tables come from datasets mentioned across various chapters in the book
 -- more practice with string matching
 -- find first_name with at least one 'e' *and* 'a' at second position
+
 SELECT
     first_name
 FROM
@@ -12,6 +16,7 @@ WHERE
 -- find teachers whose last name is not 'Bush' and someone who
 -- was hired after 2005 and then sort by their school name (ascending) and
 -- salary (descending)
+
 SELECT
     *
 FROM
@@ -25,6 +30,7 @@ ORDER BY
 
 -- Practising more with the US census 2010 data
 -- check out where housing crisis is expected to be happening
+
 SELECT
     geo_name,
     state_us_abbreviation,
@@ -41,6 +47,7 @@ ORDER BY
 
 -- TODO: how to avoid the repeated computation of pct_violent_crime here?
 -- Select a few states and rank cities according to violent crime rates
+
 SELECT
     st,
     city,
@@ -65,6 +72,7 @@ WHERE
     AND (st IN('Texas', 'California'));
 
 -- summary of library visit rates (min, median, max)
+
 SELECT
     MIN(pct_data.pct_visits),
     percentile_cont(0.5) WITHIN GROUP (
@@ -97,6 +105,7 @@ FROM
 -- FBI data: any relationship between violent crime and larceny theft?
 -- small and positive (correlation = 0.288, slope = 0.003)
 -- N.B.: r and slope are not equal because variables are not scaled in regression
+
 SELECT
     round(
         corr(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
@@ -126,6 +135,7 @@ FROM
     ) AS pct_data;
 
 ---- practice
+
 SELECT
     date_part('hour', tpep_pickup_datetime) as pickup_hour,
     min(trip_distance) AS min_distance_rate,
