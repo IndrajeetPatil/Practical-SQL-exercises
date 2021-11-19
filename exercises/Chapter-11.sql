@@ -137,4 +137,4 @@ SELECT
 FROM
     nyc_yellow_taxi_trips_2016_06_01
 WHERE
-    (tpep_dropoff_datetime - tpep_pickup_datetime) < '03:00:00' :: interval;
+    (tpep_dropoff_datetime - tpep_pickup_datetime) < '03:00:00'::interval;

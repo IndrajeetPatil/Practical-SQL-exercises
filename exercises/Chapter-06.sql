@@ -55,7 +55,7 @@ SELECT
     percentile_cont(.5) WITHIN GROUP (
         ORDER BY
             (
-                (c2010.p0010001 :: numeric - c2000.p0010001) / c2000.p0010001 * 100
+                (c2010.p0010001::numeric - c2000.p0010001) / c2000.p0010001 * 100
             )
     ) AS median_pct_change
 FROM
@@ -83,7 +83,7 @@ SELECT
     c2010.p0010001 AS pop_2010,
     c2000.p0010001 AS pop_2000,
     round(
-        (c2010.p0010001 :: numeric - c2000.p0010001) / c2000.p0010001 * 100,
+        (c2010.p0010001::numeric - c2000.p0010001) / c2000.p0010001 * 100,
         1
     ) AS pct_change
 FROM

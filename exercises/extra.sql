@@ -47,14 +47,14 @@ SELECT
     violent_crime,
     population,
     round(
-        (violent_crime :: numeric / population) * 1000,
+        (violent_crime::numeric / population) * 1000,
         2
     ) AS pct_violent_crime,
     rank() over (
         PARTITION BY st
         ORDER BY
             round(
-                (violent_crime :: numeric / population) * 1000,
+                (violent_crime::numeric / population) * 1000,
                 2
             ) DESC
     )
@@ -80,10 +80,10 @@ FROM
             stabr,
             visits,
             popu_lsa,
-            round((visits :: numeric / popu_lsa) * 1000, 2) AS pct_visits,
+            round((visits::numeric / popu_lsa) * 1000, 2) AS pct_visits,
             rank() over (
                 ORDER BY
-                    round((visits :: numeric / popu_lsa) * 1000, 2) DESC
+                    round((visits::numeric / popu_lsa) * 1000, 2) DESC
             )
         FROM
             pls_fy2014_pupld14a
@@ -99,19 +99,19 @@ FROM
 -- N.B.: r and slope are not equal because variables are not scaled in regression
 SELECT
     round(
-        corr(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        corr(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
         3
     ) AS correlation,
     round(
-        regr_intercept(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        regr_intercept(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
         3
     ) AS intercept,
     round(
-        regr_slope(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        regr_slope(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
         3
     ) AS slope,
     round(
-        regr_r2(pct_data.pct_violent, pct_data.pct_larceny) :: numeric,
+        regr_r2(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
         3
     ) AS r_sq
 FROM
@@ -119,8 +119,8 @@ FROM
         SELECT
             st,
             city,
-            round(violent_crime :: numeric / population, 3) AS pct_violent,
-            round(larceny_theft :: numeric / population, 3) AS pct_larceny
+            round(violent_crime::numeric / population, 3) AS pct_violent,
+            round(larceny_theft::numeric / population, 3) AS pct_larceny
         FROM
             fbi_crime_data_2015
     ) AS pct_data;
@@ -130,10 +130,10 @@ SELECT
     date_part('hour', tpep_pickup_datetime) as pickup_hour,
     min(trip_distance) AS min_distance_rate,
     max(trip_distance) AS max_distance_rate,
-    sum(trip_distance) :: numeric / count(trip_id) AS avg_distance_rate,
+    sum(trip_distance)::numeric / count(trip_id) AS avg_distance_rate,
     min(passenger_count) AS min_passenger_count,
     max(passenger_count) AS max_passenger_count,
-    sum(passenger_count) :: numeric / count(trip_id) AS avg_passenger_count
+    sum(passenger_count)::numeric / count(trip_id) AS avg_passenger_count
 FROM
     nyc_yellow_taxi_trips_2016_06_01
 GROUP BY
@@ -145,7 +145,7 @@ SELECT
     us10.county_fips,
     round(
         (
-            (us10.p0010001 :: numeric - us00.p0010001) / us00.p0010001
+            (us10.p0010001::numeric - us00.p0010001) / us00.p0010001
         ) * 100,
         2
     ) AS pct_pop_change

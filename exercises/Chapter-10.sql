@@ -40,7 +40,7 @@ SELECT
     motor_vehicle_theft,
     population,
     round(
-        (motor_vehicle_theft :: numeric / population) * 1000,
+        (motor_vehicle_theft::numeric / population) * 1000,
         2
     ) AS pct_motor_vehicle_theft
 FROM
@@ -57,7 +57,7 @@ SELECT
     violent_crime,
     population,
     round(
-        (violent_crime :: numeric / population) * 1000,
+        (violent_crime::numeric / population) * 1000,
         2
     ) AS pct_violent_crime
 FROM
@@ -86,10 +86,10 @@ SELECT
     stabr,
     visits,
     popu_lsa,
-    round((visits :: numeric / popu_lsa) * 1000, 2) AS pct_visits,
+    round((visits::numeric / popu_lsa) * 1000, 2) AS pct_visits,
     rank() over (
         ORDER BY
-            round((visits :: numeric / popu_lsa) * 1000, 2) DESC
+            round((visits::numeric / popu_lsa) * 1000, 2) DESC
     )
 FROM
     pls_fy2014_pupld14a
