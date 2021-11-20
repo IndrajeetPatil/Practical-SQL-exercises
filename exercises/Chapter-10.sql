@@ -10,6 +10,7 @@
 -- Q1 --
 ---------
 
+
 -- Relationship between masters degree and median household income
 /*
  The r of the variables pct_bachelors_higher and median_hh_income was about .68,

@@ -53,6 +53,7 @@ IMMUTABLE
 RETURNS NULL ON NULL INPUT;
 
 -- use it in Listing 10-9 to make sure you get the same results
+
 SELECT
     city,
     st,
@@ -65,6 +66,7 @@ WHERE
     population >= 500000
 ORDER BY
     (property_crime::numeric / population) DESC;
+
 
 ---------
 -- Q3 --

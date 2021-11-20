@@ -44,6 +44,7 @@ WHERE
 ORDER BY
     county_2010_name;
 
+
 ---------
 -- Q2 --
 ---------

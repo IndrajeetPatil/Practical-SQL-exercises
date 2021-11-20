@@ -26,6 +26,7 @@ WITH (FORMAT CSV, HEADER, DELIMITER ':', quote '#');
 
 
 -- counties with most housing units
+
 COPY (
     SELECT
         geo_name,

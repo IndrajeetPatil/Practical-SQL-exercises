@@ -60,6 +60,7 @@ UPDATE
 SET
     author_name = regexp_replace(author_name, ',\s.+', '');
 
+
 ---------
 -- Q2 --
 ---------

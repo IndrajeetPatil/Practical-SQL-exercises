@@ -27,6 +27,7 @@ ORDER BY
 -- Q2 --
 ---------
 
+
 -- find teachers with specified conditions
 
 SELECT

@@ -61,7 +61,7 @@ ORDER BY
 SELECT *
 FROM crosstab('SELECT
                flavor,
-			   office,
+               office,
                count(*)
                FROM ice_cream_survey
                GROUP BY flavor, office

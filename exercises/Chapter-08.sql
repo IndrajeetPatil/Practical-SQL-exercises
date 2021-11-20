@@ -68,6 +68,7 @@ ORDER BY
 
 -- create a table with Bureau of Economic Analysis Codes and corresponding regions
 -- Ref: <https://www.icip.iastate.edu/maps/refmaps/bea>
+
 CREATE TABLE region_details (
     obereg varchar(2) CONSTRAINT region_key PRIMARY KEY,
     region_name text
