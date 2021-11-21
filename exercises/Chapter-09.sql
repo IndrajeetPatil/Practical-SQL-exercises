@@ -14,12 +14,9 @@
 -- creating count of different activities at the plant
 -- Step 1: create two new columns
 
-ALTER TABLE
-    meat_poultry_egg_inspect
-ADD
-    COLUMN meat_processing boolean,
-ADD
-    COLUMN poultry_processing boolean;
+ALTER TABLE meat_poultry_egg_inspect
+    ADD COLUMN meat_processing boolean,
+    ADD COLUMN poultry_processing boolean;
 
 -- Step 2: set them to true based on activities column
 

@@ -28,8 +28,8 @@ SELECT
     pls14.stabr,
     SUM(pls14.gpterms) AS gpterms_14,
     SUM(pls09.gpterms) AS gpterms_09,
-    SUM(pls14.pitusr) AS pitusr_14,
-    SUM(pls09.pitusr) AS pitusr_09,
+    SUM(pls14.pitusr)  AS pitusr_14,
+    SUM(pls09.pitusr)  AS pitusr_09,
     round(
         (
             CAST(

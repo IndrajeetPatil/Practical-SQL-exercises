@@ -43,10 +43,7 @@ VALUES
 
 -- add a new column for suffixes and extract suffixes to it
 
-ALTER TABLE
-    authors
-ADD COLUMN
-    suffix varchar(10);
+ALTER TABLE authors ADD COLUMN suffix varchar(10);
 
 UPDATE
     authors
@@ -127,7 +124,7 @@ SELECT
 FROM
     president_speeches
 WHERE
-    search_speech_text @ @ to_tsquery('war & security & threat & enemy')
+    search_speech_text @@ to_tsquery('war & security & threat & enemy')
 ORDER BY
     score DESC
 LIMIT

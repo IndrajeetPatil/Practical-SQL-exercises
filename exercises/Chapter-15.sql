@@ -76,27 +76,29 @@ ORDER BY
 -- implement a trigger that automatically adds an inspection date to the
 -- meat_poultry_egg_inspect table each time you insert a new facility
 
+-- add the new column if you haven't already done so
+
+ALTER TABLE meat_poultry_egg_inspect ADD COLUMN inspection_date date;
+
 -- creating the add_inspection_date() function
 
 CREATE OR REPLACE FUNCTION add_inspection_date()
 RETURNS trigger AS
-$$ BEGIN
-UPDATE
-    meat_poultry_egg_inspect
-SET
-    inspection_date = now() + '6 months' :: interval;
-RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
+$$
+    BEGIN
+    NEW.inspection_date = now() + '6 months'::interval;
+    RETURN NEW;
+    END;
+$$
+LANGUAGE plpgsql;
 
 -- specifying trigger
 
 CREATE OR REPLACE TRIGGER facility_insert
-AFTER INSERT ON
-    meat_poultry_egg_inspect
-FOR EACH ROW
-EXECUTE PROCEDURE
-add_inspection_date();
+   BEFORE INSERT
+   ON meat_poultry_egg_inspect
+   FOR EACH ROW
+   EXECUTE PROCEDURE add_inspection_date();
 
 -- Update the table
 

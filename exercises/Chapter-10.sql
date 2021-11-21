@@ -15,6 +15,8 @@
 /*
  The r of the variables pct_bachelors_higher and median_hh_income was about .68,
  while the r of pct_masters_higher and median_hh_income is lower (.57).
+ One possibility is that getting a master's degree or higherhas a more
+ incremental effect on salary than getting a bachelor's degree.
  */
 
 SELECT
