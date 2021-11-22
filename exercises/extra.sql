@@ -102,39 +102,56 @@ FROM
             pct_visits DESC
     ) AS pct_data;
 
--- FBI data: any relationship between violent crime and larceny theft?
--- small and positive (correlation = 0.288, slope = 0.003)
--- N.B.: r and slope are not equal because variables are not scaled in regression
+-- FBI data
+-- create a view with correlations between all crime variables
+-- note that the maximum correlation is between violence and burglary, while
+-- minimum between violence and larceny
+CREATE OR REPLACE VIEW corr_table AS (
+    SELECT
+        round(
+            corr(rpt_violent_crime, rpt_property_crime)::numeric,
+            2
+        ) AS r_violence_property,
+        round(
+            corr(rpt_violent_crime, rpt_burglary)::numeric,
+            2
+        ) AS r_violence_burglary,
+        round(
+            corr(rpt_violent_crime, rpt_larceny_theft)::numeric,
+            2
+        ) AS r_violence_larceny,
+        round(
+            corr(rpt_violent_crime, rpt_motor_vehicle_theft)::numeric,
+            2
+        ) AS r_violence_motor,
+        round(
+            corr(rpt_burglary, rpt_larceny_theft)::numeric,
+            2
+        ) AS r_burglary_larceny,
+        round(
+            corr(rpt_burglary, rpt_motor_vehicle_theft)::numeric,
+            2
+        ) AS r_burglary_motor,
+        round(
+            corr(rpt_larceny_theft, rpt_motor_vehicle_theft)::numeric,
+            2
+        ) AS r_larceny_motor
+    FROM
+        -- derived table
+        (
+            SELECT
+                rates_per_thousand(violent_crime, population, 3) AS rpt_violent_crime,
+                rates_per_thousand(property_crime, population, 3) AS rpt_property_crime,
+                rates_per_thousand(burglary, population, 3) AS rpt_burglary,
+                rates_per_thousand(larceny_theft, population, 3) AS rpt_larceny_theft,
+                rates_per_thousand(motor_vehicle_theft, population, 3) AS rpt_motor_vehicle_theft
+            FROM
+                fbi_crime_data_2015
+        ) AS rpt_crimes
+);
 
-SELECT
-    round(
-        corr(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
-        3
-    ) AS correlation,
-    round(
-        regr_intercept(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
-        3
-    ) AS intercept,
-    round(
-        regr_slope(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
-        3
-    ) AS slope,
-    round(
-        regr_r2(pct_data.pct_violent, pct_data.pct_larceny)::numeric,
-        3
-    ) AS r_sq
-FROM
-    (
-        SELECT
-            st,
-            city,
-            round(violent_crime::numeric / population, 3) AS pct_violent,
-            round(larceny_theft::numeric / population, 3) AS pct_larceny
-        FROM
-            fbi_crime_data_2015
-    ) AS pct_data;
-
----- practice
+-- NYC taxi data
+-- min, max, and average distance travelled and passanger count by hour of travel
 
 SELECT
     date_part('hour', tpep_pickup_datetime) as pickup_hour,
@@ -150,23 +167,4 @@ GROUP BY
     pickup_hour
 ORDER BY
     pickup_hour;
-
-SELECT
-    us10.county_fips,
-    round(
-        (
-            (us10.p0010001::numeric - us00.p0010001) / us00.p0010001
-        ) * 100,
-        2
-    ) AS pct_pop_change
-FROM
-    us_counties_2010 AS us10
-    INNER JOIN us_counties_2000 AS us00 ON us10.county_fips = us00.county_fips
-ORDER BY
-    us10.county_fips;
-
-CREATE TABLE region_details (
-    obereg varchar(2) CONSTRAINT region_key PRIMARY KEY,
-    region_name text
-);
 
