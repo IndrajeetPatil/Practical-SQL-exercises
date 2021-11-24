@@ -1,8 +1,8 @@
 -- The following exercises are not from the book, but just for my own practice
 -- This script will keep updating while I keep practicing
-
 -- the tables come from datasets mentioned across various chapters in the book
--- more practice with string matching
+
+
 -- find first_name with at least one 'e' *and* 'a' at second position
 
 SELECT
@@ -168,3 +168,28 @@ GROUP BY
 ORDER BY
     pickup_hour;
 
+
+-- calculate the descriptives for passenger count per trip for each vendor and hour
+-- but only for trips with pick up times between 8-6 pm
+-- we can see that vendor_id 2 consistently gets more passengers per trip pretty much
+-- across all hours of interest
+
+SELECT
+    date_part('hour', tpep_pickup_datetime) AS pickup_hour,
+    vendor_id,
+    round(
+        sum(passenger_count)::numeric / count(trip_id),
+        2
+    ) AS avg_passenger_per_trip,
+    min(passenger_count) AS min_passenger_count,
+    max(passenger_count) AS max_passenger_count
+FROM
+    nyc_yellow_taxi_trips_2016_06_01
+GROUP BY
+    vendor_id,
+    pickup_hour
+HAVING
+    date_part('hour', tpep_pickup_datetime) BETWEEN '8' AND '18'
+ORDER BY
+    pickup_hour,
+    vendor_id;

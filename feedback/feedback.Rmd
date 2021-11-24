@@ -1,0 +1,23 @@
+---
+title: "Practical-SQL exercises - feedback"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## General comments
+
+* When the joins are mentioned for the first time, the book uses aliases for tables being joined by explicitly using the `AS` keyword (e.g. `left_table AS lt`). But then it stops using this keyword later on (e.g. `left_table lt`). Although, it might not be hard for someone to see that this keyword is optional, I think it's still a good practice for beginners to repeatedly see aliasing using `AS` keyword, so that they embody the habit of making their aliasing intent clear using this keyword. Plus, it may avoid confusion for some other users who may be wondering why there is no `AS`, and if this is an error.
+
+* While discussing writing functions for triggers, I think it would be helpful if the book were to clarify that we don't need to specify the table explicitly, because the function will always pick up the table specified in when `CREATE TRIGGER` clause is specified. Users coming from other programming languages will spend some time scratching their heads as to how does the function *know*, for example in Listing 15-22, which table does `NEW` keyword refer to?!
+
+## Wishlist
+
+* I wish the book had also covered the following operators:
+
+    - `UNION` (and `UNION ALL`)
+    - `ANY` and `ALL`
+
+* While discussing joins, if not explicit treatment, self joins may at least deserve a hat tip.
