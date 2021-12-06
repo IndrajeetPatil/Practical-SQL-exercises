@@ -13,6 +13,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * While discussing writing functions for triggers, I think it would be helpful if the book were to clarify that we don't need to specify the table explicitly, because the function will always pick up the table specified in when `CREATE TRIGGER` clause is specified. Users coming from other programming languages will spend some time scratching their heads as to how does the function *know*, for example in Listing 15-22, which table does `NEW` keyword refer to?!
 
+## Possible clarifications
+
+* The way derived tables, CTEs, and view are discussed in the book, sometimes it may feel like they can't all be combined in the same workflow. So, maybe an example that contains more than one of these concepts can be produced to drive this point home:
+
+```sql
+CREATE OR REPLACE VIEW ... AS
+WITH ... AS (
+...
+)
+```
+
 ## Wishlist
 
 * I wish the book had also covered the following operators:
