@@ -1,5 +1,6 @@
 ---
-title: "Practical-SQL exercises - feedback"
+title: "Practical SQL: A Beginner's Guide to Storytelling with Data"
+subtitle: "Feedback on the 1st Edition"
 output: pdf_document
 ---
 
@@ -15,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Possible clarifications
 
+* I wish the book emphasized how DBMS, data model, and query language (SQL) are all different things. Only then will it be clear that, for example, *MySQL*, *PostgresSQL*, etc. are RDBMS, and **not** different dialects of SQL developed for respective databases (which is what I walked away thinking having read the book).
+
 * The way derived tables, CTEs, and view are discussed in the book, sometimes it may feel like they can't all be combined in the same workflow. So, maybe an example that contains more than one of these concepts can be produced to drive this point home:
 
 ```sql
@@ -25,6 +28,9 @@ WITH ... AS (
 ```
 
 ## Wishlist
+
+* The book does not cover some common terms used while talking about relational data model:
+*attribute*, *tuple*, *domain*, *degree*, *cardinality*
 
 * I wish the book had also covered the following operators:
 
